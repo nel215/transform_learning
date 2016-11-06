@@ -21,6 +21,6 @@ def test_fit():
     W = np.random.randn(N, N)
     sc = SparseCoder(W, transform_n_nonzero_coefs=K)
     code = sc.fit_transform(X)
-    random_error = np.linalg.norm(X - code.dot(tl.components_))
+    random_error = np.linalg.norm(X - code.dot(W))
     print('Random Dictionary:', random_error)
     assert tl_error < random_error
